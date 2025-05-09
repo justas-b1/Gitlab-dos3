@@ -1,4 +1,4 @@
-# Authenticated Gitlab DoS 3 - Uncontrolled Resource Consumption - 8CPU cores (16vCPU) &amp; 11GB RAM - Events Tracking - Low Bandwidth
+# Authenticated Gitlab DoS - Uncontrolled Resource Consumption - 8CPU cores (16vCPU) &amp; 11GB RAM - Events Tracking - Low Bandwidth
 
 Gitlab doesn't accept 99.9% of DoS vulnerabilities. This vulnerability is out-of-scope unfortunately 😔.
 

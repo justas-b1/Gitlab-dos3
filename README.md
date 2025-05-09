@@ -103,16 +103,12 @@ DoS attacks are very noisy by nature—crashing services, flooding logs, and tri
 
 A DoS on GitLab instance, for example, might not be the end goal—just the distraction. While teams scramble to stabilize GitLab, the attacker quietly hits a more valuable target elsewhere: cloud buckets, internal APIs, or CI-linked infrastructure.
 
-![Integrity](images/overload_dos.png)
-
 2. Cloud Provider Blacklisting/Suspension
 
 The attack causes 100%+ CPU usage over extended period of time.
 Providers like DigitalOcean, AWS, etc. use heuristic models to flag "suspicious" resource consumption. Legitimate causes (e.g., DDoS attacks, unoptimized code, or intensive computations) might be **mislabeled as abusive**, leading to temporary account suspension.
 
 Cryptojacking and Uncontrolled Resource Consumption are very similar in a way that they both use up computational resources and can result in massive financial damages, budget limit based account locks or even suspensions.
-
-![Integrity](images/similarities.png)
 
 ## 💡 Company Information
 

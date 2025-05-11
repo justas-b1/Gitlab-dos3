@@ -95,21 +95,6 @@ From https://gitlab-com.gitlab.io/gl-security/product-security/appsec/cvss-calcu
 
 This attack used < 1RPS.
 
-### Theoretical Impact
-
-1. Advanced Monitoring Blind Spots: Alert Overload as a Smokescreen for Data Exfiltration
-
-DoS attacks are very noisy by nature—crashing services, flooding logs, and triggering alert storms. But that chaos can work in the attacker's favor. By overwhelming observability tools like Prometheus or Datadog with garbage metrics and cardinality explosions, an attacker can distract responders and degrade monitoring fidelity.
-
-A DoS on GitLab instance, for example, might not be the end goal—just the distraction. While teams scramble to stabilize GitLab, the attacker quietly hits a more valuable target elsewhere: cloud buckets, internal APIs, or CI-linked infrastructure.
-
-2. Cloud Provider Blacklisting/Suspension
-
-The attack causes 100%+ CPU usage over extended period of time.
-Providers like DigitalOcean, AWS, etc. use heuristic models to flag "suspicious" resource consumption. Legitimate causes (e.g., DDoS attacks, unoptimized code, or intensive computations) might be **mislabeled as abusive**, leading to temporary account suspension.
-
-Cryptojacking and Uncontrolled Resource Consumption are very similar in a way that they both use up computational resources and can result in massive financial damages, budget limit based account locks or even suspensions.
-
 ## 💡 Company Information
 
 GitLab is a web-based DevOps platform that provides an integrated CI/CD pipeline, enabling developers to plan, develop, test, and deploy code seamlessly. Key features include:
@@ -166,4 +151,3 @@ This Proof-of-Concept (PoC) is provided **for educational purposes only**.
 - **Ethical Responsibility**: Do not use this tool to violate laws or exploit systems without consent.  
 
 By using this software, you agree to these terms. 
-

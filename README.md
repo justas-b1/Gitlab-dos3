@@ -86,7 +86,23 @@ Auto-scaling under attack can cause a cost spike, potentially breaching budget t
 
 **Scope (S:C)** - Changed. Affects cloud hosting account if auto-scaling is enabled.
 
-**Integrity Impact (I:N)** - None.
+**Integrity Impact (I:L)** - Even without a full VM crash, a GitLab process restart under high CPU pressure can still affect integrity, depending on timing:
+
+| Risk Area                                         | Integrity Impact                                            |
+| ------------------------------------------------- | ----------------------------------------------------------- |
+| **In-flight CI jobs**                             | Lost or left in inconsistent state                          |
+| **Git pushes in progress**                        | May fail or be incomplete                                   |
+| **API/database writes**                           | Might be interrupted mid-operation                          |
+| **User UI edits (issues, MR descriptions, etc.)** | Could be lost before save                                   |
+| **Redis/Sidekiq jobs**                            | Might be killed mid-queue; jobs retried or silently dropped |
+
+These are non-theoretical — they happen frequently in real-world incidents involving service restarts due to overload.
+
+👉 This qualifies as Low Integrity Impact (I:L) under CVSS guidelines, because:
+
+Data can be lost, though not corrupted. It affects some users or jobs, not system-wide data destruction.
+
+Although the GitLab instance does not restart in the provided proof-of-concept video, sustained high CPU load for more than 5 minutes or a higher request-per-second (RPS) rate significantly increases the likelihood of a forced restart.
 
 **Availability Impact (A:H)** - High. Instance becomes unavailable for at least 10 seconds and might self-restart.
 
@@ -148,7 +164,8 @@ Returns over 50,000 publicly exposed GitLab instances. Some servers allow new us
 
 ![Shodan](images/shodan_gitlab_self_hosted.PNG)
 
-## ⚠️ Legal Disclaimer  
+## ⚠️ Legal Disclaimer
+
 This Proof-of-Concept (PoC) is provided **for educational purposes only**.  
 
 - **Authorized Use Only**: Test only on systems you own or have explicit permission to assess.  

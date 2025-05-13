@@ -1,4 +1,4 @@
-# Authenticated Gitlab DoS - Uncontrolled Resource Consumption - 8CPU cores (16vCPU) &amp; 11GB RAM - Events Tracking - Low Bandwidth
+# Authenticated Gitlab DoS - Uncontrolled Resource Consumption - 8CPU cores (16vCPU) &amp; 11GB RAM - POC Code
 
 Gitlab doesn't accept 99.9% of DoS vulnerabilities. This vulnerability is out-of-scope unfortunately 😔.
 
@@ -26,6 +26,7 @@ python poc.py --url "https://gitlab.example.com" --token "glpat-ME1P75un4Au_zEgi
 ```
 
 ## 📊 GitLab Event Flooder - Usage Guide
+
 A Python script that sends randomized usage events to GitLab's track_event API to simulate heavy input loads with large property sets. Useful for stress testing analytics endpoints or exploring edge case behavior under unusual payload sizes.
 
 ## ✅ Required Flags
@@ -135,11 +136,15 @@ GitLab is favored by U.S. Department of Defense (DoD) agencies for secure, self-
 
 Its ability to manage sensitive data and maintain operational control makes GitLab a key tool for government and defense sectors.
 
-## Affected Websites
+## 🌐 Affected Websites
 
-Shodan query: http.title:"GitLab"
+Shodan query: 
 
-Returns more than 50 thousand results.
+```
+http.title:"GitLab"
+```
+
+Returns over 50,000 publicly exposed GitLab instances. Some servers allow new user sign-ups without admin approval, which may permit unauthorized access to project listings or internal repositories.
 
 ![Shodan](images/shodan_gitlab_self_hosted.PNG)
 

@@ -1,6 +1,6 @@
 # Authenticated Gitlab DoS
 
-Uncontrolled Resource Consumption - 8CPU cores (16vCPU) &amp; 11GB RAM - POC Code
+0day as of Friday, May 9, 2025. Version - 17.11.2 - Uncontrolled Resource Consumption - 8CPU cores (16vCPU) &amp; 11GB RAM - POC Code
 
 ## Video POC
 

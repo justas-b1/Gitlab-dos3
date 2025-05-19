@@ -35,7 +35,7 @@ A Python script that sends randomized usage events to GitLab's track_event API t
 | Flag           | Description                                   | Default |
 | -------------- | --------------------------------------------- | ------- |
 | `--properties` | Number of random key-value pairs to generate  | `6660`  |
-| `--delay`      | Delay (in seconds) between thread starts      | `1.0`   |
+| `--delay`      | Delay (in seconds) between thread starts - 1.0 is 1RPS      | `1.0`   |
 | `--threads`    | Total threads (requests) to launch            | `999`   |
 | `--batch`      | Number of threads before applying batch sleep | `13`    |
 | `--sleep`      | Seconds to sleep after each batch             | `3`     |

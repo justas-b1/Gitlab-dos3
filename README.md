@@ -19,9 +19,9 @@ cd Gitlab-dos3
 python poc.py --url "https://gitlab.example.com" --token "glpat-ME1P75un4Au_zEgiyebv"
 ```
 
-## 📊 GitLab Event Flooder - Usage Guide
+## 📊 GitLab Event Flooder - What The Script Does
 
-A Python script that sends randomized usage events to GitLab's track_event API to simulate heavy input loads with large property sets. Useful for stress testing analytics endpoints or exploring edge case behavior under unusual payload sizes.
+This script sends a high volume of POST requests to a GitLab usage tracking API endpoint using multiple threads. It generates a JSON payload simulating a user event, including thousands of random properties to increase payload size. The script takes arguments like URL, token, number of threads, delay, and batch size from the command line. Each thread writes its payload to a temporary file and sends it using curl. After every batch of requests, it pauses briefly before continuing. The script reports response results for each thread and waits for all threads to complete. It’s useful for testing how the server handles large, concurrent analytics events.
 
 ## ✅ Required Flags
 
